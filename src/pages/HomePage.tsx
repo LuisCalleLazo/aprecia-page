@@ -1,46 +1,56 @@
 import { Link } from "react-router-dom";
+import image1 from "../assets/images.jpg";
+import image2 from "../assets/images2.jpg";
+import image3 from "../assets/images3.jpg";
 
 function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center">
-          <div className="flex items-center gap-2 font-bold text-xl text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-            <span>APRECIA</span>
-          </div>
-          <nav className="hidden md:flex gap-6 ml-10">
-            <a href="#inicio" className="text-sm font-medium transition-colors hover:text-blue-600">
-              Inicio
-            </a>
-            <a href="#nosotros" className="text-sm font-medium transition-colors hover:text-blue-600">
-              Nosotros
-            </a>
-            <a href="#servicios" className="text-sm font-medium transition-colors hover:text-blue-600">
-              Servicios
-            </a>
-            <a href="#deteccion" className="text-sm font-medium transition-colors hover:text-blue-600">
-              Detección Temprana
-            </a>
-            <a href="#contacto" className="text-sm font-medium transition-colors hover:text-blue-600">
-              Contacto
-            </a>
-          </nav>
-          <div className="ml-auto flex items-center gap-4">
-            <button className="hidden md:flex h-10 px-4 py-2 rounded-md border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground">
-              Agendar Cita
-            </button>
-            <Link to="/asistente" className="h-10 px-4 py-2 rounded-md bg-blue-600 text-white shadow hover:bg-blue-700">
-              Detección Virtual
-            </Link>
-          </div>
+      <div className="container flex h-16 items-center">
+        <div className="flex items-center gap-3 font-bold text-xl text-red-600">
+          <div
+            className="w-12 h-12 bg-contain bg-center bg-no-repeat flex-shrink-0"
+            style={{ backgroundImage: `url('/logo.png')` }}
+            role="img"
+            aria-label="APRECIA Logo"
+          />
+          <span className="leading-none">APRECIA</span>
         </div>
-      </header>
+
+        <nav className="hidden md:flex gap-6 ml-10">
+          <a href="#inicio" className="text-sm font-medium transition-colors hover:text-red-600">
+            Inicio
+          </a>
+          <a href="#nosotros" className="text-sm font-medium transition-colors hover:text-red-600">
+            Nosotros
+          </a>
+          <a href="#servicios" className="text-sm font-medium transition-colors hover:text-red-600">
+            Servicios
+          </a>
+          <a href="#deteccion" className="text-sm font-medium transition-colors hover:text-red-600">
+            Detección Temprana
+          </a>
+          <a href="#contacto" className="text-sm font-medium transition-colors hover:text-red-600">
+            Contacto
+          </a>
+        </nav>
+
+        <div className="ml-auto flex items-center gap-4">
+          <button className="hidden md:flex items-center justify-center h-10 px-4 py-2 rounded-md border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground transition-colors">
+            Agendar Cita
+          </button>
+          <Link
+            to="/asistente"
+            className="flex items-center justify-center h-10 px-4 py-2 rounded-md bg-red-600 text-white shadow hover:bg-red-700 transition-colors"
+          >
+            Detección Virtual
+          </Link>
+        </div>
+      </div>
+    </header>
       <main className="flex-1">
-        <section id="inicio" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-50 to-green-50">
+        <section id="inicio" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-red-50 to-green-50">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
@@ -52,7 +62,7 @@ function HomePage() {
                   alta calidad con tecnología de vanguardia.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link to="/asistente" className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700">
+                  <Link to="/asistente" className="inline-flex h-10 items-center justify-center rounded-md bg-red-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-red-700">
                     Evalúa tu visión ahora
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2 h-4 w-4">
                       <path d="M5 12h14" />
@@ -66,9 +76,10 @@ function HomePage() {
               </div>
               <div className="mx-auto w-full max-w-[500px] aspect-video relative rounded-xl overflow-hidden shadow-xl">
                 <img
-                  src="https://placehold.co/800x500/EEE/31343C"
+                  src={image1}
                   alt="Cuidado de la visión"
-                  className="w-full h-full object-cover"
+                  className="object-cover"
+                  sizes="(max-width: 500px) 100vw, 500px"
                 />
               </div>
             </div>
@@ -88,10 +99,11 @@ function HomePage() {
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
               <img
-                src="https://placehold.co/600x400/EEE/31343C"
-                alt="Equipo APRECIA"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-              />
+                  src={image2}
+                  alt="Cuidado de la visión"
+                  className="object-cover"
+                  sizes="(max-width: 500px) 100vw, 500px"
+                />
               <div className="flex flex-col justify-center space-y-4">
                 <ul className="grid gap-6">
                   <li>
@@ -138,8 +150,8 @@ function HomePage() {
             </div>
             <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm bg-white">
-                <div className="rounded-full bg-blue-100 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-600">
+                <div className="rounded-full bg-red-100 p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-red-600">
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.3-4.3" />
                   </svg>
@@ -151,8 +163,8 @@ function HomePage() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm bg-white">
-                <div className="rounded-full bg-blue-100 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-600">
+                <div className="rounded-full bg-red-100 p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-red-600">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                   </svg>
                 </div>
@@ -162,8 +174,8 @@ function HomePage() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm bg-white">
-                <div className="rounded-full bg-blue-100 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-600">
+                <div className="rounded-full bg-red-100 p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-red-600">
                     <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                   </svg>
                 </div>
@@ -173,8 +185,8 @@ function HomePage() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm bg-white">
-                <div className="rounded-full bg-blue-100 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-600">
+                <div className="rounded-full bg-red-100 p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-red-600">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
                     <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
@@ -187,8 +199,8 @@ function HomePage() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm bg-white">
-                <div className="rounded-full bg-blue-100 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-600">
+                <div className="rounded-full bg-red-100 p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-red-600">
                     <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                     <circle cx="12" cy="12" r="3" />
                   </svg>
@@ -199,8 +211,8 @@ function HomePage() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm bg-white">
-                <div className="rounded-full bg-blue-100 p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-600">
+                <div className="rounded-full bg-red-100 p-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-red-600">
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.3-4.3" />
                   </svg>
@@ -234,15 +246,15 @@ function HomePage() {
                     <li>Reducción de costos médicos a largo plazo</li>
                   </ul>
                 </div>
-                <button className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 mt-4">
+                <button className="inline-flex h-10 items-center justify-center rounded-md bg-red-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-red-700 mt-4">
                   Programa una evaluación
                 </button>
               </div>
-              <div className="mx-auto w-full max-w-[500px] aspect-video relative rounded-xl overflow-hidden shadow-xl">
+              <div className="mx-auto w-full max-w-[700px] aspect-video relative rounded-xl overflow-hidden shadow-xl">
                 <img
-                  src="https://placehold.co/800x500/EEE/31343C"
-                  alt="Detección temprana"
-                  className="w-full h-full object-cover"
+                  src={image3}
+                  alt="Cuidado de la visión"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -251,7 +263,7 @@ function HomePage() {
 
         <section
           id="asistente-virtual"
-          className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-50 to-green-50"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-red-50 to-green-50"
         >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -266,8 +278,8 @@ function HomePage() {
             <div className="mx-auto max-w-3xl mt-12 rounded-xl border bg-white p-6 shadow-lg">
               <div className="space-y-4">
                 <div className="flex items-center gap-4 border-b pb-4">
-                  <div className="rounded-full bg-blue-100 p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-600">
+                  <div className="rounded-full bg-red-100 p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-red-600">
                       <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                       <circle cx="12" cy="12" r="3" />
                     </svg>
@@ -314,7 +326,7 @@ function HomePage() {
               </div>
             </div>
             <div className="text-center mt-8">
-              <Link to="/asistente" className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700">
+              <Link to="/asistente" className="inline-flex h-10 items-center justify-center rounded-md bg-red-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-red-700">
                 Iniciar evaluación completa
               </Link>
             </div>
@@ -331,27 +343,27 @@ function HomePage() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-red-600">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
                     <p>+52 123 456 7890</p>
                   </div>
                   <div className="flex items-center gap-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-red-600">
                       <rect width="20" height="16" x="2" y="4" rx="2" />
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
                     <p>contacto@aprecia.com</p>
                   </div>
                   <div className="flex items-center gap-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-red-600">
                       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
                     <p>Av. Principal 123, Ciudad de México</p>
                   </div>
                   <div className="flex items-center gap-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-red-600">
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
@@ -372,7 +384,7 @@ function HomePage() {
                       </label>
                       <input
                         id="nombre"
-                        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                         placeholder="Tu nombre"
                       />
                     </div>
@@ -382,7 +394,7 @@ function HomePage() {
                       </label>
                       <input
                         id="apellido"
-                        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                         placeholder="Tu apellido"
                       />
                     </div>
@@ -394,7 +406,7 @@ function HomePage() {
                     <input
                       id="email"
                       type="email"
-                      className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                       placeholder="tu@email.com"
                     />
                   </div>
@@ -405,7 +417,7 @@ function HomePage() {
                     <input
                       id="telefono"
                       type="tel"
-                      className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                       placeholder="+52 123 456 7890"
                     />
                   </div>
@@ -415,11 +427,11 @@ function HomePage() {
                     </label>
                     <textarea
                       id="mensaje"
-                      className="w-full min-h-[120px] rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full min-h-[120px] rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                       placeholder="¿En qué podemos ayudarte?"
                     />
                   </div>
-                  <button type="submit" className="w-full h-10 px-4 py-2 rounded-md bg-blue-600 text-white shadow hover:bg-blue-700">
+                  <button type="submit" className="w-full h-10 px-4 py-2 rounded-md bg-red-600 text-white shadow hover:bg-red-700">
                     Enviar mensaje
                   </button>
                 </form>
@@ -430,7 +442,7 @@ function HomePage() {
       </main>
       <footer className="w-full border-t py-6 md:py-0">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4 md:h-24 px-4 md:px-6">
-          <div className="flex items-center gap-2 text-blue-600">
+          <div className="flex items-center gap-2 text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
               <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
               <circle cx="12" cy="12" r="3" />
